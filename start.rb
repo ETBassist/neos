@@ -11,11 +11,20 @@ asteroid_list = asteroid_details[:asteroid_list]
 total_number_of_asteroids = asteroid_details[:total_number_of_asteroids]
 largest_asteroid = asteroid_details[:biggest_asteroid]
 
+def most_characters_in(column, asteroid_data)
+  character_counts = asteroid_data.map do |asteroid|
+    asteroid[column].size
+  end
+  character_counts.max
+end
+
 column_labels = { name: "Name", diameter: "Diameter", miss_distance: "Missed The Earth By:" }
-column_data = column_labels.each_with_object({}) do |(col, label), hash|
-  hash[col] = {
+column_data = column_labels.each_with_object({}) do |(column, label), hash|
+  hash[column] = {
     label: label,
-    width: [asteroid_list.map { |asteroid| asteroid[col].size }.max, label.size].max}
+    # finds longest name/characters
+    width: [most_characters_in(column, asteroid_list), label.size].max
+  }
 end
 
 header = "| #{ column_data.map { |_,col| col[:label].ljust(col[:width]) }.join(' | ') } |"
@@ -39,3 +48,4 @@ puts divider
 puts header
 create_rows(asteroid_list, column_data)
 puts divider
+
