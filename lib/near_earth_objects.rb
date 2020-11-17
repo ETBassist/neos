@@ -19,6 +19,7 @@ class NearEarthObjects
       asteroid[:estimated_diameter][:feet][:estimated_diameter_max].to_i
     end.max { |a,b| a<=> b}
 
+    # Call this from within the resulting hash, total_number_of_asteroids: parsed_asteroids_data.count
     total_number_of_asteroids = parsed_asteroids_data.count
     formatted_asteroid_data = parsed_asteroids_data.map do |asteroid|
       {
@@ -31,7 +32,7 @@ class NearEarthObjects
     {
       asteroid_list: formatted_asteroid_data,
       biggest_asteroid: largest_asteroid_diameter,
-      total_number_of_asteroids: total_number_of_asteroids
+      total_number_of_asteroids: parsed_asteroids_data.count
     }
   end
 end
