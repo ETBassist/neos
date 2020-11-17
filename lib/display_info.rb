@@ -38,12 +38,11 @@ class DisplayInfo
   end
 
   def create_rows(column_info)
-    @asteroid_list.each { |asteroid| format_row_data(asteroid, column_info) }
+    @asteroid_list.each { |asteroid| puts "| #{format_row_data(asteroid, column_info)} |" }
   end
 
   def format_row_data(row_data, column_info)
-    row = row_data.keys.map { |key| row_data[key].ljust(column_info[key][:width]) }.join(' | ')
-    puts "| #{row} |"
+    row_data.keys.map { |key| row_data[key].ljust(column_info[key][:width]) }.join(' | ')
   end
 
   def create_columns
