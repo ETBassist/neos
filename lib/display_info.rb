@@ -33,7 +33,7 @@ class DisplayInfo
   end
 
   def divider
-    "+-#{ @column_data.map { |_,column| "-"*column[:width] }.join('-+-') }-+"
+    "+-#{ @column_data.map { |_,column| "-" * column[:width] }.join('-+-') }-+"
   end
 
   def create_rows
