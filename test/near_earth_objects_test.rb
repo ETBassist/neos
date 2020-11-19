@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'pry'
 require './lib/near_earth_objects'
 require 'mocha/minitest'
 
