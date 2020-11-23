@@ -33,7 +33,7 @@ class DisplayInfo
   end
 
   def divider
-    "+-#{ @column_data.map { |_,column| "-"*column[:width] }.join('-+-') }-+"
+    "+-#{ @column_data.map { |_,column| "-" * column[:width] }.join('-+-') }-+"
   end
 
   def create_rows
@@ -55,9 +55,6 @@ class DisplayInfo
   end
 
   def most_characters_in(column)
-    character_counts = @asteroid_list.map do |asteroid|
-      asteroid[column].size
-    end
-    character_counts.max
+    @asteroid_list.map { |asteroid| asteroid[column].size }.max
   end
 end
