@@ -12,6 +12,7 @@ class DisplayInfoTest < MiniTest::Test
   end
 
   def test_it_returns_the_most_characters_in_a_column
+    skip
     assert_equal 18, @display.most_characters_in(:name)
   end
 end
