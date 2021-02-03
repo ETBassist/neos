@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/neo_service'
 require './lib/asteroid'
 
@@ -26,7 +28,7 @@ class NearEarthObjects
     end
 
     def largest_by_diameter(asteroids)
-      largest_asteroid = asteroids.max_by { |asteroid| asteroid.estimated_diameter }
+      largest_asteroid = asteroids.max_by(&:estimated_diameter)
       largest_asteroid.estimated_diameter.to_i
     end
   end

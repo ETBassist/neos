@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Asteroid
   attr_reader :name,
               :miss_distance,

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/display_info'
 require './lib/near_earth_objects'
 

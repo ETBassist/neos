@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/asteroid'
@@ -10,12 +12,10 @@ class NEOServiceTest < MiniTest::Test
       assert_instance_of Asteroid, asteroid
     end
 
-    sorted_asteroids_by_size = asteroids.sort_by do |asteroid|
-      asteroid.estimated_diameter
-    end
+    sorted_asteroids_by_size = asteroids.sort_by(&:estimated_diameter)
 
-    assert_equal "(2019 UZ)", sorted_asteroids_by_size[0].name
+    assert_equal '(2019 UZ)', sorted_asteroids_by_size[0].name
     assert_equal 51.289094295, sorted_asteroids_by_size[0].estimated_diameter
-    assert_equal "37755577.3604636944", sorted_asteroids_by_size[0].miss_distance
+    assert_equal '37755577.3604636944', sorted_asteroids_by_size[0].miss_distance
   end
 end
